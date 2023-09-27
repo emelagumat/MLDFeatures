@@ -1,30 +1,35 @@
 // swift-tools-version: 5.9
-// The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
 
 let package = Package(
-    name: "MLDFeatures",
-    platforms: [.iOS(.v16), .macOS(.v13)],
+    name: "swift-emelagudev-features",
+    platforms: [
+        .iOS(.v16),
+        .macOS(.v13)
+    ],
     products: [
         .library(
             name: "MLDFeatures",
-            targets: ["RemoteImage"])
+            targets: ["MLDFeatures"])
     ],
     dependencies: [
         .package(url: "https://github.com/pointfreeco/swift-composable-architecture.git", from: "1.2.0"),
-        .package(url: "https://github.com/kishikawakatsumi/swift-power-assert.git", from: "0.12.0")
+        .package(url: "https://github.com/kishikawakatsumi/swift-power-assert.git", from: "0.12.0"),
+        .package(url: "https://github.com/apple/swift-docc-plugin", from: "1.3.0")
     ],
     targets: [
         .target(
-            name: "RemoteImage", 
+            name: "MLDFeatures",
             dependencies: [
-                .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
-                .product(name: "PowerAssert", package: "swift-power-assert")
+                .product(name: "ComposableArchitecture", package: "swift-composable-architecture")
             ]
         ),
         .testTarget(
             name: "MLDFeaturesTests",
-            dependencies: ["RemoteImage"]),
+            dependencies: [
+                "MLDFeatures",
+                .product(name: "PowerAssert", package: "swift-power-assert")
+            ]),
     ]
 )

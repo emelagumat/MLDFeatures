@@ -3,7 +3,7 @@ import XCTest
 import PowerAssert
 import ComposableArchitecture
 
-@testable import RemoteImage
+@testable import MLDFeatures
 
 @MainActor
 class RemoteImageFeatureTests: XCTestCase {
