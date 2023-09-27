@@ -1,4 +1,3 @@
-
 import SwiftUI
 import ComposableArchitecture
 
@@ -10,7 +9,7 @@ public extension RemoteImageEnvironment {
             redactionEnabled: true,
             cacheEnabled: true
         )
-        
+
         public static var testValue = liveValue
     }
 }

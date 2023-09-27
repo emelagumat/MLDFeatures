@@ -1,6 +1,6 @@
 import XCTest
 
-//@testable import MLDFeatures
+// @testable import MLDFeatures
 
 final class MLDFeaturesTests: XCTestCase {
     func testExample() throws {

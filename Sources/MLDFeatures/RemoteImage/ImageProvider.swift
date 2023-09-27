@@ -1,11 +1,10 @@
-
 import SwiftUI
 
 /// A protocol defining the methods for loading an image, either by URL or string URL.
 public protocol ImageProvider {
     /// Asynchronously fetches an image from the provided string URL. If `storeInCache` is true, the method first looks for the image in the cache before fetching.
     func loadImage(stringURL: String, storeInCache: Bool) async -> UIImage?
-    
+
     /// Asynchronously fetches an image from the provided URL. If `storeInCache` is true, the method first looks for the image in the cache before fetching.
     func loadImage(url: URL, storeInCache: Bool) async -> UIImage?
 }
@@ -24,7 +23,7 @@ public extension ImageProvider {
 
 final class ImageProviderImpl: ImageProvider {
     private let session: URLSession
-    
+
     init(session: URLSession = .shared) {
         self.session = session
     }

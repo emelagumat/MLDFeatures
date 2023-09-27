@@ -30,6 +30,6 @@ let package = Package(
             dependencies: [
                 "MLDFeatures",
                 .product(name: "PowerAssert", package: "swift-power-assert")
-            ]),
+            ])
     ]
 )

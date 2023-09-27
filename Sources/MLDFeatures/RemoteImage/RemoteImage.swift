@@ -1,4 +1,3 @@
-
 import SwiftUI
 import ComposableArchitecture
 
@@ -62,17 +61,17 @@ import ComposableArchitecture
 */
 public struct RemoteImage: View {
     let store: StoreOf<RemoteImageFeature>
-    
+
     private var isResizable = false
     private var contentMode: ContentMode = .fit
-    
+
     public init(store: StoreOf<RemoteImageFeature>) {
         self.store = store
-        
+
         let feature = RemoteImageFeature()
             .dependency(\.environment.redactionEnabled, false)
     }
-    
+
     public var body: some View {
         WithViewStore(
             self.store,
