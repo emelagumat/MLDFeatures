@@ -67,9 +67,6 @@ public struct RemoteImage: View {
 
     public init(store: StoreOf<RemoteImageFeature>) {
         self.store = store
-
-        let feature = RemoteImageFeature()
-            .dependency(\.environment.redactionEnabled, false)
     }
 
     public var body: some View {
