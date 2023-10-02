@@ -1,5 +1,9 @@
+#if canImport(UIKit)
 import UIKit
+#endif
 
+import SwiftUI
+// import Foundation
 class ImageCache {
     static let shared = ImageCache()
 
@@ -16,3 +20,13 @@ class ImageCache {
         cache.object(forKey: key as NSString)
     }
 }
+
+#if canImport(AppKit)
+import AppKit
+public typealias UIImage = NSImage
+public extension Image {
+    init(uiImage: UIImage) {
+        self.init(nsImage: uiImage)
+    }
+}
+#endif

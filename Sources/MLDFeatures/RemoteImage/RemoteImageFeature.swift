@@ -3,7 +3,6 @@ import SwiftUI
 
 /// A Reducer for managing remote image state and loading.
 public struct RemoteImageFeature: Reducer {
-
     /// Dependency to access external environment like image loading.
     @Dependency(\.environment) var environment
 
@@ -14,7 +13,11 @@ public struct RemoteImageFeature: Reducer {
         Reduce { state, action in
             switch action {
             case .onAppear:
-                .none
+                if !state.imageStringURL.isEmpty {
+                    makeNewURLEffect(into: &state, with: state.imageStringURL)
+                } else {
+                    .none
+                }
 
             case let .onGetStringURL(url):
                 if url == state.imageStringURL { .none } else {
@@ -50,7 +53,7 @@ public struct RemoteImageFeature: Reducer {
         if let uiImage = uiImage {
             state.image = Image(uiImage: uiImage)
         } else {
-            state.image = state.placeholder
+            state.image = environment.placeholder ?? state.placeholder
         }
 
         return .none
